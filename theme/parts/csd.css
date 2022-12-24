@@ -1,10 +1,11 @@
 /* GNOME CSD styles for headerbar on Firefox [tabsintitlebar] */
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
+/*
 #main-window {
 	-moz-appearance: -moz-window-titlebar !important;
 }
+*/
 
 /* Headerbar top border corners rounded */
 :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]) #nav-bar {
@@ -12,12 +13,12 @@
 }
 
 /* Window buttons: at least 1 button */
-@media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
+/*@media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {*/
 	:root {
 		--gnome-navbar-csd-offset: 43px;
 	}
-}
-/* Window buttons: at least 2 buttons */
+/*}*/
+/*
 @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
        (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
        (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
@@ -25,12 +26,12 @@
 		--gnome-navbar-csd-offset: 80px;
 	}
 }
-/* Window buttons: 3 buttons */
 @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
 	:root {
 		--gnome-navbar-csd-offset: 117px;
 	}
 }
+*/
 
 /* Right window buttons offset by button count */
 :root[tabsintitlebar]:not([inFullscreen]) #nav-bar {
@@ -63,9 +64,21 @@
 	}
 }
 
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container .titlebar-min,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container .titlebar-close {
+	display: none !important;
+}
+
 /* Remove close and minimize buttons from fullscreen buttons */
 :root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container .titlebar-min,
 :root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container .titlebar-close {
+	display: none !important;
+}
+
+
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container .titlebar-min,
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container .titlebar-max,
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container .titlebar-restore {
 	display: none !important;
 }
 
